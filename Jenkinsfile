@@ -11,7 +11,14 @@ pipeline {
     }
 
     stages {
-
+        stage('Checkout') {
+            steps {
+                // Clean the workspace before checking out the code
+                cleanWs()
+                // Checkout the code from the GitHub repository
+                git url: 'https://github.com/Dermenji/Selenium-WebDriver-Fundamentals-Advance.git'
+            }
+        }
 
         stage('Build and Test') {
             steps {
